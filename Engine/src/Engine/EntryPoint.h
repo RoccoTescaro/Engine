@@ -7,6 +7,10 @@ extern Engine::Application* Engine::createApplication();
 
 int main(int argc, char** argv) 
 {
+	Engine::Log::init();
+	CORE_WARN("Initialized Log!");
+	INFO("Initialized Log!");
+
 	auto app = Engine::createApplication();
 	app->run();
 	delete app;
