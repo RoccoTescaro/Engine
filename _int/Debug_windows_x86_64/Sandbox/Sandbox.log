@@ -1,0 +1,8 @@
+﻿  Application.cpp
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Log.h(18,42): warning C4251: 'Engine::Log::coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Engine::Log'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\Vendor\Spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Log.h(19,42): warning C4251: 'Engine::Log::clientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Engine::Log'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\Vendor\Spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Log.h(33,1): warning C4005: 'ERROR': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\wingdi.h(118,1): message : see previous definition of 'ERROR'
+  Sandbox.vcxproj -> C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\_bin\Debug_windows_x86_64\Sandbox\Sandbox.exe
