@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Event.h"
-#include <sstream>
 
 namespace Engine 
 {
@@ -72,7 +71,7 @@ namespace Engine
 		std::string toString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseButtonPressed: " << button;
+			ss << "MouseButtonPressed: " << (int)button;
 			return ss.str();
 		}
 
@@ -87,7 +86,7 @@ namespace Engine
 		std::string toString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseButtonReleased: " << button;
+			ss << "MouseButtonReleased: " << (int)button;
 			return ss.str();
 		}
 

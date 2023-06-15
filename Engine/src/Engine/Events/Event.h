@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine/Core.h"
-#include <typeinfo>
-#include <string>
+#include <functional>
+#include <sstream>
 
 namespace Engine 
 {
@@ -45,6 +45,8 @@ namespace Engine
 		{ 
 			return getCategory() & category; 
 		}
+
+		inline bool isHandled() const { return handled; }
 	private:
 		bool handled = false;
 	};

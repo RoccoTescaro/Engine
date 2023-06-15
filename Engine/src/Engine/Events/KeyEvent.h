@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Event.h"
-#include <sstream>
 
 namespace Engine 
 {
@@ -50,6 +49,21 @@ namespace Engine
 		}
 
 		EVENT_CLASS_TYPE(KeyReleased)
+	};
+
+	class API KeyTyped : public KeyEvent
+	{
+	public:
+		KeyTyped(uint16_t keyCode) : KeyEvent(keyCode) {}
+
+		std::string toString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTyped: " << keyCode;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped)
 	};
 
 }

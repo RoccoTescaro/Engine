@@ -1,8 +1,14 @@
 ﻿  Application.cpp
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Layer.h(24,15): warning C4251: 'Engine::Layer::debugName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Engine::Layer'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xstring(5300,29): message : see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\LayerStack.h(24,23): warning C4251: 'Engine::LayerStack::layers': class 'std::vector<Engine::Layer *,std::allocator<Engine::Layer *>>' needs to have dll-interface to be used by clients of class 'Engine::LayerStack'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\LayerStack.h(21,8): message : see declaration of 'std::vector<Engine::Layer *,std::allocator<Engine::Layer *>>'
 C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Log.h(18,42): warning C4251: 'Engine::Log::coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Engine::Log'
 C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\Vendor\Spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
 C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Log.h(19,42): warning C4251: 'Engine::Log::clientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Engine::Log'
 C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\Vendor\Spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
 C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Log.h(33,1): warning C4005: 'ERROR': macro redefinition
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\wingdi.h(118,1): message : see previous definition of 'ERROR'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Application.h(27,27): warning C4251: 'Engine::Application::window': class 'std::unique_ptr<Engine::Window,std::default_delete<Engine::Window>>' needs to have dll-interface to be used by clients of class 'Engine::Application'
+C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\Engine\src\Engine\Application.h(27,8): message : see declaration of 'std::unique_ptr<Engine::Window,std::default_delete<Engine::Window>>'
   Sandbox.vcxproj -> C:\Users\RoccoTescaro\OneDrive\Dev\CppProjects\Engine\_bin\Debug_windows_x86_64\Sandbox\Sandbox.exe
