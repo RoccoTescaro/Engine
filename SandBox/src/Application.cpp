@@ -1,4 +1,6 @@
 #include <Engine.h>
+#include "Imgui/imgui.h"
+#include <glm/glm.hpp>
 
 class ExampleLayer : public Engine::Layer
 {
@@ -10,10 +12,18 @@ public:
 
 	void onUpdate() override
 	{
+
 	}
 
 	void onEvent(Engine::Event& event) override
 	{
+	}
+
+	void onImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 };
 
@@ -23,7 +33,6 @@ public:
 	SandBox()
 	{
 		pushLayer(new ExampleLayer());
-		pushOverlay(new Engine::ImguiLayer());
 	}
 
 	~SandBox()
@@ -32,7 +41,4 @@ public:
 
 };
 
-Engine::Application* Engine::createApplication()
-{
-	return new SandBox();
-}
+SET_APPLICATION(SandBox);

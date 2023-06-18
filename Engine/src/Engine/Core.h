@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef PLATFORM_WINDOWS
-	#ifdef BUILD_DLL
-		#define API __declspec(dllexport)
+	#if DDL //TODO remove completly in my version
+		#ifdef BUILD_DLL  
+			#define API __declspec(dllexport)
+		#else
+			#define API __declspec(dllimport)
+		#endif
 	#else
-		#define API __declspec(dllimport)
+		#define API
 	#endif
 #else 
 	#error Engine only supports Windows!
@@ -17,6 +21,14 @@
 #define CORE_ASSERT(x, ...)
 #define ASSERT(x, ...)
 #endif
+
+
+#define SET_APPLICATION(x, ...) \
+		void Engine::Application::init()\
+			{\
+				CORE_ASSERT(!instance,"Application already istantiated");\
+				instance = new x(__VA_ARGS__);\
+			}
 
 #define BIT(x) (1 << x)
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)

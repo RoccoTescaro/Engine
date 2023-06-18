@@ -4,6 +4,7 @@
 #include "Events/ApplicationEvent.h"
 #include "LayerStack.h"
 #include "Window.h"
+#include "Engine/Imgui/ImguiLayer.h"
 
 namespace Engine 
 {
@@ -12,10 +13,12 @@ namespace Engine
 	{
 	public:
 		Application();
-
-		virtual ~Application();
+		virtual ~Application() = default;
 
 		inline static Application& get() { return *instance; }
+		static void init(); //defined client side with SET_APPLICATION macro
+			
+		inline void setImguiLayer(ImguiLayer* imguiLayer) { this->imguiLayer = imguiLayer; pushOverlay(imguiLayer); }
 
 		inline Window& getWindow() { return *window; }
 
@@ -25,16 +28,15 @@ namespace Engine
 		void pushOverlay(Layer* overlay);
 
 		void onEvent(Event& e);
+	protected:
+		static Application* instance;
 	private:
 		bool onWindowClose(WindowClose& e);
 
+		ImguiLayer* imguiLayer;
 		std::unique_ptr<Window> window;
 		bool running = true;
 		LayerStack layerStack;
-
-		static Application* instance;
 	};
-
-	Application* createApplication();
 
 }

@@ -1,19 +1,15 @@
 #pragma once
 #include "Application.h"
+#include "Imgui/ImguiLayer.h"
 
 #ifdef PLATFORM_WINDOWS
 
-extern Engine::Application* Engine::createApplication();
-
 int main(int argc, char** argv) 
 {
-	Engine::Log::init();
-	//CORE_WARN("Initialized Log!");
-	//INFO("Initialized Log!");
-
-	auto app = Engine::createApplication();
-	app->run();
-	delete app;
+	Engine::Application::init();
+	auto& app = Engine::Application::get();
+	app.setImguiLayer(new Engine::ImguiLayer());
+	app.run();
 }
 
 #endif

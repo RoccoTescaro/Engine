@@ -30,5 +30,5 @@ namespace Engine
 #define TRACE(...) Engine::Log::getClientLogger()->trace(__VA_ARGS__)
 #define INFO(...) Engine::Log::getClientLogger()->info(__VA_ARGS__)
 #define WARN(...) Engine::Log::getClientLogger()->warn(__VA_ARGS__)
-#define ERROR(...) Engine::Log::getClientLogger()->error(__VA_ARGS__)
+#define ERROR(...) Engine::Log::getClientLogger()->error(__VA_ARGS__) //change name
 #define FATAL(...) Engine::Log::getClientLogger()->fatal(__VA_ARGS__)

@@ -1,5 +1,6 @@
 workspace "Engine"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -14,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Engine/Vendor/Glfw/include"
 IncludeDir["GLAD"] = "Engine/Vendor/Glad/include"
 IncludeDir["IMGUI"] = "Engine/Vendor/Imgui"
+IncludeDir["GLM"] = "Engine/Vendor/Glm"
 
 include "Engine/Vendor/Glfw"
 include "Engine/Vendor/Glad"
@@ -21,10 +23,10 @@ include "Engine/Vendor/Imgui"
 
 project "Engine"
 	location "Engine"
-	kind "SharedLib"
+	kind "StaticLib"
+	staticruntime "on"
 	language "C++"
 	cppdialect "C++20"
-	staticruntime "off"
 
 	targetdir ("_bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("_int/" .. outputdir .. "/%{prj.name}")
@@ -35,7 +37,9 @@ project "Engine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/Vendor/Glm/glm/**.hpp",
+		"%{prj.name}/Vendor/Glm/glm/**.inl"
 	}
 
 	includedirs
@@ -44,7 +48,8 @@ project "Engine"
 		"%{prj.name}/Vendor/Spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLAD}",
-		"%{IncludeDir.IMGUI}"
+		"%{IncludeDir.IMGUI}",
+		"%{IncludeDir.GLM}"
 	}
 
 	links
@@ -63,11 +68,6 @@ project "Engine"
 			"PLATFORM_WINDOWS",
 			"BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../_bin/" .. outputdir .. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -90,7 +90,7 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++20"
-	staticruntime "off"
+	staticruntime "on"
 
 	targetdir ("_bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("_int/" .. outputdir .. "/%{prj.name}")
@@ -104,7 +104,9 @@ project "Sandbox"
 	includedirs
 	{
 		"Engine/Vendor/Spdlog/include",
-		"Engine/src"
+		"Engine/src",
+		"Engine/Vendor",
+		"%{IncludeDir.GLM}"
 	}
 
 	links
